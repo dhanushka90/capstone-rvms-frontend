@@ -24,7 +24,7 @@ class ListSensorData extends Component {
                         <thead>
                             <tr>
                                 <th>Time Stamp</th>
-                                <th>Device ID</th>
+                                <th>Journey/Refregirator ID</th>
                                 <th>Temparature</th>
                                 <th>Accelerometer X</th>
                                 <th>Accelerometer Y</th>
@@ -42,7 +42,7 @@ class ListSensorData extends Component {
                             {this.state.sensorData.map((sensor) => (
                                 <tr key={sensor.id}>
                                     <td>{sensor.timeStamp}</td>
-                                    <td>{sensor.deviceId}</td>
+                                    <td>{sensor.jrId}</td>
                                     <td>{sensor.temparature}</td>
                                     <td>{sensor.accelerometerX}</td>
                                     <td>{sensor.accelerometerY}</td>

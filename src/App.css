@@ -50,8 +50,10 @@
     padding: 20px;
     margin: 20px auto 0;
     width: calc(100% - 40px);
-    max-width: 1200px;
-    margin-top: 50px; /* add margin-top */
+    max-width: 1800px;
+    margin-top: 50px;
+    overflow-x: auto;
   }
+  
   
   

@@ -19,6 +19,7 @@ function App() {
       <Route exact path="/intransit" element={<InTransit />}/>
       <Route exact path="/inhouse" element={<InHouse />}/>
       <Route exact path="/sign-up" element={<SignUp />}/>
+      <Route exact path="/sign-up" element={<SignUp />}/>
       </Routes>
       </Router>
    </>
