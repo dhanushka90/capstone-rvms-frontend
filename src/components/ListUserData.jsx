@@ -31,7 +31,7 @@ class ListUserData extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.state.userData.map((sensor) => (
+                            {this.state.userData.map((user) => (
                                 <tr key={user.id}>
                                     <td>{user.userName}</td>
                                     <td>{user.firstName}</td>

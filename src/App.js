@@ -5,6 +5,8 @@ import './App.css';
 import Home from './components/pages/Home';
 import InTransit from './components/pages/InTransit';
 import InHouse from './components/pages/InHouse';
+import JourneyRefrigerator from './components/pages/JourneyRefrigerator';
+import User from './components/pages/User';
 import SignUp from './components/pages/SignUp';
 
 
@@ -18,7 +20,8 @@ function App() {
       <Route exact path="/home" element={<Home />}/>
       <Route exact path="/intransit" element={<InTransit />}/>
       <Route exact path="/inhouse" element={<InHouse />}/>
-      <Route exact path="/sign-up" element={<SignUp />}/>
+      <Route exact path="/journeyRefrigerator" element={<JourneyRefrigerator />}/>
+      <Route exact path="/user" element={<User />}/>
       <Route exact path="/sign-up" element={<SignUp />}/>
       </Routes>
       </Router>
