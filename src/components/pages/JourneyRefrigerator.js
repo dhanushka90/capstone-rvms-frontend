@@ -5,7 +5,7 @@ import FooterSub from '../FooterSub';
 
 function JourneyRefrigerator() {
   return (
-    <div>
+    <div className='pageContent'>
         <div className='custom-card'>
           <ListJourneyRefrigeratorData />
         </div>
