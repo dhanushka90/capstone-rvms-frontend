@@ -17,7 +17,12 @@ function ViewJourneyById() {
     if (!data) {
       return;
     }
-    const positions = data.map(d => [d.latitude, d.longitude]);
+    const positions = data.filter((data) => {
+      if(data.latitude === 'Unknown' || data.longitude === 'Unknown') {
+       return false;
+      }
+      return true;
+     }).map(d => [d.latitude, d.longitude]);
     setPositions(positions);
   }, [data])
 
