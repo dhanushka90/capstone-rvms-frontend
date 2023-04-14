@@ -1,6 +1,8 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+
 import './App.css';
 import Home from './components/pages/Home';
 import InTransit from './components/pages/InTransit';
@@ -19,20 +21,26 @@ import ViewJourneyById from './components/ViewJourneyById';
 
 function App() {
   return (
-   <>
-   <Router>
-      <Navbar />
-      <Routes>
-      <Route exact path="/" element={<Home />}/>
-      <Route exact path="/home" element={<Home />}/>
-      <Route exact path="/intransit" element={<InTransit />}/>
-      <Route exact path="/inhouse" element={<InHouse />}/>
-      <Route exact path="/journeyRefrigerator" element={<JourneyRefrigerator />}/>
-      {/* <Route exact path="/user" element={<User />}/> */}
-      <Route path="/user" element={<ListUserData />} />
-      <Route path="/add-user" element={<CreateUpdateUser />} />
-      <Route path="/update-user/:id" element={<CreateUpdateUser />} />
-      <Route path="/view-user/:id" element={<ViewUser/>} />
+
+    <>
+      <Toaster
+        position='top-right'
+        gutter={8}
+        containerStyle={{ top: 80 }}
+      />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route index element={<Home />} />
+          <Route exact path="/home" element={<Home />} />
+          <Route exact path="/intransit" element={<InTransit />} />
+          <Route exact path="/inhouse" element={<InHouse />} />
+          <Route exact path="/journeyRefrigerator" element={<JourneyRefrigerator />} />
+          {/* <Route exact path="/user" element={<User />}/> */}
+          <Route path="/user" element={<ListUserData />} />
+          <Route path="/add-user" element={<CreateUpdateUser />} />
+          <Route path="/update-user/:id" element={<CreateUpdateUser />} />
+          <Route path="/view-user/:id" element={<ViewUser />} />
 
 
       <Route path="/journeyRefrigeratorList" element={<ListJourneyRefrigeratorData/>} />
@@ -45,10 +53,10 @@ function App() {
 
 
 
-      <Route exact path="/sign-up" element={<SignUp />}/>
-      </Routes>
-      </Router>
-   </>
+          <Route exact path="/sign-up" element={<SignUp />} />
+        </Routes>
+      </Router >
+    </>
   );
 }
 

@@ -17,7 +17,12 @@ function ViewJourneyById() {
     if (!data) {
       return;
     }
-    const positions = data.map(d => [d.latitude, d.longitude]);
+    const positions = data.filter((data) => {
+      if(data.latitude === 'Unknown' || data.longitude === 'Unknown') {
+       return false;
+      }
+      return true;
+     }).map(d => [d.latitude, d.longitude]);
     setPositions(positions);
   }, [data])
 
@@ -173,7 +178,7 @@ function ViewJourneyById() {
           <h2>Route</h2>
           {error && "Error!"}
           {isLoading && "Loading . . . "}
-          {data && positions && <RouteMap positions={positions} />}
+          {data && positions && positions.length !== 0 && <RouteMap positions={positions} />}
         </div>
         <div className='custom-card-2'>
           <h2>Accelerometer and Gyroscope</h2>
