@@ -1,6 +1,17 @@
-import React from 'react'
-import '../../App.css'
+import React from 'react';
+import '../../App.css';
+import ListInhouseRefrigerator from '../ListInhouseRefrigerator';
+import FooterSub from '../FooterSub';
 
-export default function InHouse() {
-    return <h1 className="inhouse">In-House</h1>
+function InHouse() {
+  return (
+    <div className='pageContent'>
+        <div className='custom-card'>
+          <ListInhouseRefrigerator />
+        </div>
+      <FooterSub />
+    </div>
+  );
 }
+
+export default InHouse;

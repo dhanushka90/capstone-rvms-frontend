@@ -5,7 +5,7 @@ import { useState } from "react";
 const SENSOR_API_BASE_URL = "http://localhost:3000/api/v1/allSensorData";
 // const SENSOR_API_BASE_URL = "http://3.97.194.206:30080/api/v1/allSensorData"
 
-export const useSensorData = () => {
+export const useSensorData = (jrId) => {
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -19,7 +19,12 @@ export const useSensorData = () => {
                         throw new Error("Error while fetching the sensor data!");
                     }
                     const data = await response.json();
-                    setData(data);
+                    if (jrId) {
+                      const filteredData = data.filter((item) => item.jrId === jrId);
+                      setData(filteredData);
+                    } else {
+                      setData(data);
+                    }
                 } catch (error) {
                     console.error("Error while fetching the sensor data!");
                     console.error(error)
@@ -28,10 +33,11 @@ export const useSensorData = () => {
                     setIsLoading(false)
                 }
             })()
-    }, [])
+    }, [jrId])
 
     return { data, isLoading, error }
 }
+
 class SensorService {
 
     getSensors() {

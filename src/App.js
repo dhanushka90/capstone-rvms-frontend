@@ -14,6 +14,8 @@ import ViewUser from './components/ViewUser';
 import ListJourneyRefrigeratorData from './components/ListJourneyRefrigeratorData';
 import CreateUpdateJourneyRefrigerator from './components/CreateUpdateJourneyRefrigerator';
 import ViewJourneyRefrigerator from './components/ViewJourneyRefrigerator';
+import ViewRefrigeratorById from './components/ViewRefrigeratorById';
+import ViewJourneyById from './components/ViewJourneyById';
 
 function App() {
   return (
@@ -36,7 +38,12 @@ function App() {
       <Route path="/journeyRefrigeratorList" element={<ListJourneyRefrigeratorData/>} />
       <Route path="/add-journeyRefrigerator" element={<CreateUpdateJourneyRefrigerator />} />
       <Route path="/update-journeyRefrigerator/:id" element={<CreateUpdateJourneyRefrigerator />} />
-      <Route path="/view-journeyRefrigerator/:id" element={<ViewJourneyRefrigerator/>} />
+      {/* <Route path="/view-journeyRefrigerator/:id" element={<ViewJourneyRefrigerator/>} /> */}
+      <Route path="/view-journeyRefrigerator/:jrId" element={<ViewRefrigeratorById />} />
+      <Route path="/view-journeyRefrigerator/:jrId" element={<ViewJourneyById />} />
+
+
+
 
       <Route exact path="/sign-up" element={<SignUp />}/>
       </Routes>
