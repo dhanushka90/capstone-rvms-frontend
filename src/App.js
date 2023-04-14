@@ -48,7 +48,7 @@ function App() {
       <Route path="/update-journeyRefrigerator/:id" element={<CreateUpdateJourneyRefrigerator />} />
       {/* <Route path="/view-journeyRefrigerator/:id" element={<ViewJourneyRefrigerator/>} /> */}
       <Route path="/view-journeyRefrigerator/:jrId" element={<ViewRefrigeratorById />} />
-      <Route path="/view-journeyRefrigerator/:jrId" element={<ViewJourneyById />} />
+      <Route exact path="/view-journey/:jrId" element={<ViewJourneyById />} />
 
 
 

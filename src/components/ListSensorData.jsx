@@ -39,7 +39,7 @@ class ListSensorData extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.state.sensorData.map((sensor) => (
+                            {this.state.sensorData.filter(({jrId}) =>  jrId === this.props.jrId).map((sensor) => (
                                 <tr key={sensor.id}>
                                     <td>{sensor.timeStamp}</td>
                                     <td>{sensor.jrId}</td>

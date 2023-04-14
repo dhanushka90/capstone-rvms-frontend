@@ -175,20 +175,20 @@ function ViewRefrigeratorById() {
           {data && tempChartOptions && <EChart id="c2" options={tempChartOptions} />}
         </div>
         <div className='custom-card-2'>
-          <h2>Route</h2>
+          <h2>Location</h2>
           {error && "Error!"}
           {isLoading && "Loading . . . "}
           {data && positions &&  positions.length !== 0 && <RouteMap positions={positions} />}
         </div>
-        <div className='custom-card-2'>
+        {/* <div className='custom-card-2'>
           <h2>Accelerometer and Gyroscope</h2>
           {error && "Error!"}
           {isLoading && "Loading . . . "}
           {data && lineChartOptions && <EChart id="c1" options={lineChartOptions} />}
-        </div>
+        </div> */}
       </div>
       <div className='custom-card-1'>
-        <ListSensorData />
+      <ListSensorData jrId={jrId} />
       </div>
       <FooterSub />
     </div>

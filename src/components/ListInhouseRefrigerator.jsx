@@ -41,12 +41,14 @@ const ListInhouseRefrigeratorData = () => {
     navigate(`/view-journeyRefrigerator/${id}`);
   };
 
+  let rowId = 1;
+
   return (
     <div>
       <div className="d-flex align-items-center justify-content-between">
         <div className="d-flex align-items-center">
 
-          <h2 style={{margin:"10px"}} className="text-center ">Refrigerator List</h2>
+          <h2 style={{margin:"10px", paddingLeft:"70px"}} className="text-center ">Refrigerator List</h2>
         </div>
       </div>
       <div className="row">
@@ -54,7 +56,8 @@ const ListInhouseRefrigeratorData = () => {
           <table className="table table-striped table-bordered margin-tb-3">
           <thead>
             <tr>
-            <th>JR Id</th>
+              <th>Row #</th>
+              <th>JR Id</th>
               <th>Device Id</th>
               <th>Transit or Inhouse</th>
               <th>Journey or Refrigerator</th>
@@ -68,29 +71,37 @@ const ListInhouseRefrigeratorData = () => {
           </thead>
 
           <tbody>
-          {journeyRefrigerators
-            .filter((journeyRefrigerator) => !journeyRefrigerator.transitOrInhouse) // This line filters the array
-            .map((journeyRefrigerator) => (
-                <tr key={journeyRefrigerator.id}>
-                <td>{journeyRefrigerator.jrId}</td>
-                <td>{journeyRefrigerator.deviceId}</td>
-                <td>{convertTransitOrInhouse(journeyRefrigerator.transitOrInhouse)}</td>
-                <td>{journeyRefrigerator.journeyOrRefrigeratorName}</td>
-                <td>{journeyRefrigerator.startTime}</td>
-                <td>{convertStatus(journeyRefrigerator.status)}</td>
-                <td>{journeyRefrigerator.tempHigh}</td>
-                <td>{journeyRefrigerator.tempLow}</td>
-                <td>{journeyRefrigerator.userId}</td>
-                <td>
-                  <button style={{marginLeft:"10px"}}  className="btn btn-success "  onClick={() => viewJourneyRefrigerator(journeyRefrigerator.jrId)}>View</button>                  
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+  {journeyRefrigerators
+    .filter((journeyRefrigerator) => !journeyRefrigerator.transitOrInhouse)
+    .map((journeyRefrigerator) => (
+      <tr key={journeyRefrigerator.id}>
+        <td>{rowId++}</td>
+        <td>{journeyRefrigerator.jrId}</td>
+        <td>{journeyRefrigerator.deviceId}</td>
+        <td>{convertTransitOrInhouse(journeyRefrigerator.transitOrInhouse)}</td>
+        <td>{journeyRefrigerator.journeyOrRefrigeratorName}</td>
+        <td>{journeyRefrigerator.startTime}</td>
+        <td>{convertStatus(journeyRefrigerator.status)}</td>
+        <td>{journeyRefrigerator.tempHigh}</td>
+        <td>{journeyRefrigerator.tempLow}</td>
+        <td>{journeyRefrigerator.userId}</td>
+        <td>
+          <button
+            style={{ marginLeft: "10px" }}
+            className="btn btn-success"
+            onClick={() => viewJourneyRefrigerator(journeyRefrigerator.jrId)}
+          >
+            View
+          </button>
+        </td>
+      </tr>
+        ))}
+      </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
+
   );
 };
 

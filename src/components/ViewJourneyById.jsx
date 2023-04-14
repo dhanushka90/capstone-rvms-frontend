@@ -188,7 +188,7 @@ function ViewJourneyById() {
         </div>
       </div>
       <div className='custom-card-1'>
-        <ListSensorData />
+        <ListSensorData jrId={jrId} />
       </div>
       <FooterSub />
     </div>

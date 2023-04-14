@@ -38,15 +38,17 @@ const ListIntransitJourneyData = () => {
 
   
   const viewJourneyRefrigerator = (id) => {
-    navigate(`/view-journeyRefrigerator/${id}`);
+    navigate(`/view-journey/${id}`);
   };
+
+  let rowId = 1;
 
   return (
     <div>
       <div className="d-flex align-items-center justify-content-between">
         <div className="d-flex align-items-center">
 
-          <h2 style={{margin:"10px"}} className="text-center ">Refrigerator List</h2>
+          <h2 style={{margin:"10px", paddingLeft:"70px"}} className="text-center ">Journey List</h2>
         </div>
       </div>
       <div className="row">
@@ -54,7 +56,8 @@ const ListIntransitJourneyData = () => {
           <table className="table table-striped table-bordered margin-tb-3">
           <thead>
             <tr>
-            <th>JR Id</th>
+              <th>Row #</th>
+              <th>JR Id</th>
               <th>Device Id</th>
               <th>Transit or Inhouse</th>
               <th>Journey or Refrigerator</th>
@@ -72,6 +75,7 @@ const ListIntransitJourneyData = () => {
             .filter((journeyRefrigerator) => journeyRefrigerator.transitOrInhouse) // This line filters the array for Intransit
             .map((journeyRefrigerator) => (
                 <tr key={journeyRefrigerator.id}>
+                <td>{rowId++}</td>
                 <td>{journeyRefrigerator.jrId}</td>
                 <td>{journeyRefrigerator.deviceId}</td>
                 <td>{convertTransitOrInhouse(journeyRefrigerator.transitOrInhouse)}</td>
