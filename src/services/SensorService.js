@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 
-const SENSOR_API_BASE_URL = "http://localhost:3000/api/v1/allSensorData";
+const SENSOR_API_BASE_URL = "http://localhost:8080/api/v1/allSensorData";
 // const SENSOR_API_BASE_URL = "http://3.97.194.206:30080/api/v1/allSensorData"
 
 export const useSensorData = () => {
