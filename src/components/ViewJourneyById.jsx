@@ -178,7 +178,7 @@ function ViewJourneyById() {
           <h2>Route</h2>
           {error && "Error!"}
           {isLoading && "Loading . . . "}
-          {data && positions && <RouteMap positions={positions} />}
+          {data && positions && positions.length !== 0 && <RouteMap positions={positions} />}
         </div>
         <div className='custom-card-2'>
           <h2>Accelerometer and Gyroscope</h2>

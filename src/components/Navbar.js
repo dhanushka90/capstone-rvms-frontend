@@ -75,7 +75,7 @@ function Navbar() {
         }
         const { tempHigh, tempLow } = journeyRefrigerators.get(jrId);
 
-        if ((timeStamp > currentLastTime) || !currentLastTime) {
+        if ((timeStamp > currentLastTime) /*|| !currentLastTime*/) {
           if (temparature >= tempHigh) {
             toast(`Journey ${jrId} eke badu rasnei ${temparature}C/F mechchara`, {
               style: { background: '#ffd891', minWidth: '200px' },
@@ -189,7 +189,7 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+          {/* {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>} */}
           <div className='navbar-icons '>
             <Link to='/notifications' className='icon-navbar'>
               <i style={{ marginLeft: "250px", color: "white", fontSize: "2rem" }} className='fas fa-bell'></i>
