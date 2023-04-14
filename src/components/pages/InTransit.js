@@ -8,6 +8,7 @@ import { useSensorData } from '../../services/SensorService'
 
 function InTransit() {
   const [lineChartOptions, setLineChartOptions] = useState(null);
+  const [tempChartOptions, setTempChartOptions] = useState(null);
   const { data, isLoading, error } = useSensorData();
   const [positions, setPositions] = useState(null);
   useEffect(() => {
@@ -97,11 +98,74 @@ function InTransit() {
     setLineChartOptions(opts);
   }, [data]);
 
+  useEffect(() => {
+    
+    if (!data) {
+      return;
+    }
+    const timeStamps = data.map(d => new Date(parseInt(d.timeStamp) * 1000));
+    const temparature = data.map(d => parseFloat(d.temparature));
+    let opts = {
+      "title": {},
+      "tooltip": {
+        "trigger": "axis",
+        "axisPointer": {
+          "type": "cross",
+          "label": {
+            "backgroundColor": "#6a7985"
+          }
+        }
+      },
+      "legend": {
+        "data": [
+          "Temparature",
+        ]
+      },
+      "toolbox": {
+        "feature": {
+          "saveAsImage": {}
+        }
+      },
+      "grid": {
+        "left": "3%",
+        "right": "4%",
+        "bottom": "3%",
+        "containLabel": true
+      },
+      "xAxis": [
+        {
+          "type": "category",
+          "boundaryGap": false,
+          "data": timeStamps
+        }
+      ],
+      "yAxis": [
+        {
+          "type": "value"
+        }
+      ],
+      "series": [
+        {
+          "name": "Temparature",
+          "type": "line",
+          "emphasis": {
+            "focus": "series"
+          },
+          "data": temparature
+        },
+      ]
+    }
+    setTempChartOptions(opts);
+  }, [data]);
+
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div className='custom-card-2'>
-          <h2>Temparature</h2>
+        <h2>Temperature</h2>
+          {error && "Error!"}
+          {isLoading && "Loading . . . "}
+          {data && tempChartOptions && <EChart id="c2" options={tempChartOptions} />}
         </div>
         <div className='custom-card-2'>
           <h2>Route</h2>

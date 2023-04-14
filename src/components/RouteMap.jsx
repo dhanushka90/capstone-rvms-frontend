@@ -52,7 +52,7 @@ const RouteMap = ({ positions }) => {
                 tileSize={512}
                 zoomOffset={-1}
             />
-            <Polyline pathOptions={{ color: 'lime' }} positions={positions} />
+            <Polyline pathOptions={{ color: 'blue' }} positions={positions} />
             <Marker
                 icon={getMarker()}
                 position={mapCenter}>

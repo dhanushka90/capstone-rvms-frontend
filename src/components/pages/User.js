@@ -5,13 +5,17 @@ import FooterSub from '../FooterSub';
 
 function User() {
   return (
-    <div>
-        <div className='custom-card'>
+    <div className="page-container">
+      <div className="container">
+        <div className="custom-card">
           <ListUserData />
         </div>
+      </div>
       <FooterSub />
     </div>
   );
 }
+
+
 
 export default User;
